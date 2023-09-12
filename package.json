@@ -10,6 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.0.8"
+    "@types/debounce": "^1.2.1",
+    "astro": "^3.0.12",
+    "debounce": "^1.2.1",
+    "sass": "^1.66.1",
+    "vite-plugin-glsl": "^1.1.2"
   }
 }

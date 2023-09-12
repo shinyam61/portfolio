@@ -1,0 +1,66 @@
+---
+---
+
+<div class="c-site">
+  <dl class="c-site__detail">
+    <div class="_group">
+      <dt>開発環境</dt>
+      <dd>
+        <a href="https://minista.qranoko.jp/" target="_blank" rel="noopener noreferrer">minist</a>という静的サイトジェネレータを使用して静的サイトを生成<br>
+        テンプレートエンジンはJSXを使用。Reactを使用し、TypeScriptで処理を記述しています。
+      </dd>
+    </div>
+    <div class="_group">
+      <dt>使用ライブラリ</dt>
+      <dd>React, GSAP</dd>
+    </div>
+    <div class="_group">
+      <dt>特徴</dt>
+      <dd>
+        コーポレートサイトなので、特段凝った演出を行なっていませんが、<br>
+        全ページの背景にマウス位置によるインタラクションをcanvas2Dで表現しています。
+      </dd>
+    </div>
+  </dl>
+</div>
+
+<style is:global lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .c-site {
+
+  }
+  .c-site__name {
+    font-weight: 700;
+    font-size: 1.2em;
+    + .c-site__detail {
+      margin-top: .5em;
+    }
+  }
+  .c-site__detail {
+
+
+    ._group {
+      &:nth-child(n+2) {
+        margin-top: 2rem;
+      }
+    }
+    dt {
+      font-weight: 700;
+      font-size: 1.05em;
+    }
+    dd {
+      margin-top: .5em;
+      padding-left: 1em;
+    }
+    a {
+      color: red;
+      text-decoration: underline;
+    }
+
+    + .c-site__name {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid currentColor;
+    }
+  }
+</style>

@@ -1,0 +1,151 @@
+---
+import { works, individual } from '../_data/works';
+import WorkCard from "./WorkCard.astro";
+---
+
+<section id="works" class="hm-work">
+  <div class="hm-work__inner">
+    <header class="hm-work__header">
+      <h2 class="hm-work__title">Works</h2>
+      <p class="hm-work__desc">直近のサイト制作。常駐先で請け負ったサイト、個人で受託したサイトの一覧です。</p>
+    </header>
+    <div class="hm-work__body">
+      <div class="hm-work__sites">
+        <h2 class="hm-work__type">業務委託先での案件</h2>
+        <ul class="hm-work__list">
+          {
+            works.map((work, idx) => {
+              return (
+                <li class="hm-work__listItem">
+                  <div class="hm-work__sticky" data-anchors={work.anchors.join(',')}>
+                    <div class="hm-work__stickyContainer">
+                      <div class="hm-work__stickyItem">
+                        <WorkCard 
+                          id={work.id}
+                          name={work.name}
+                          desc={work.desc}
+                          href={work.href}
+                          isReverse={idx % 2 == 1}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
+        <h2 class="hm-work__type">個人で請け負った案件</h2>
+        <ul class="hm-work__list">
+          {
+            individual.map((work, idx) => {
+              return (
+                <li class="hm-work__listItem">
+                  <div class="hm-work__sticky" data-anchors={work.anchors.join(',')}>
+                    <div class="hm-work__stickyContainer">
+                      <div class="hm-work__stickyItem">
+                        <WorkCard 
+                          id={work.id}
+                          name={work.name}
+                          desc={work.desc}
+                          href={work.href}
+                          isReverse={idx % 2 == 1}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+
+  .hm-work {
+    margin-top: 4.0rem;
+    padding-block: 4.0rem;
+    @include pc {
+      margin-top: 8.0rem;
+      padding-block: 4.0rem;
+    }
+  }
+  .hm-work__inner {
+    padding-inline: 2.0rem;
+    @include pc {
+      padding-inline: 4.0rem;
+    }
+  }
+  .hm-work__header {
+
+    @include pc {
+
+    }
+  }
+  .hm-work__title {
+    font-weight: 700;
+    font-size: 2.0rem;
+
+    @include pc {
+      font-size: 3.0rem;
+    }
+  }
+  .hm-work__desc {
+    margin-top: 1.0rem;
+    font-size: 1.0rem;
+    @include pc {
+      font-size: 1.2rem;
+    }
+  }
+  .hm-work__body {
+    margin-top: 4.0rem;
+    @include pc {
+      margin-top: 4.0rem;
+    }
+  }
+  .hm-work__sites {
+
+    @include pc {
+
+    }
+  }
+  .hm-work__type {
+    font-weight: 700;
+    font-size: 1.4rem;
+    @include pc {
+      font-size: 2.0rem;
+    }
+  }
+  .hm-work__list {
+    margin-top: -25%;
+    @include pc {
+      margin-top: -27%;
+    }
+  }
+  .hm-work__listItem {
+
+    @include pc {
+      padding-block: 4.0rem;
+    }
+  }
+  .hm-work__sticky {
+    position: relative;
+  }
+  .hm-work__stickyContainer {
+    height: 500vh;
+  }
+  .hm-work__stickyItem {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+---
+
+<div class="hm-kv">
+  <div class="hm-kv__inner">
+    <h1 class="hm-kv__title">
+      portfolio<br>site
+    </h1>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .hm-kv {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+  }
+  .hm-kv__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .hm-kv__title {
+    font-size: 3.5rem;
+    letter-spacing: .5em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    @include sp {
+      font-size: 2.0rem;
+      padding-left: .5em;
+      letter-spacing: .3em;
+    }
+  }
+</style>

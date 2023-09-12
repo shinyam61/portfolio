@@ -1,0 +1,76 @@
+---
+const navLinks = [
+  {
+    txt: 'About',
+    anchor: 'about'
+  },
+  {
+    txt: 'Works',
+    anchor: 'works'
+  }
+]
+---
+
+<header class="c-header">
+  <div class="c-header__inner">  
+    <div class="c-header__anchors">
+      <nav class="c-header__nav">
+        <ul class="c-header__navList">
+          {
+            navLinks.map(link => {
+              return <li class="c-header__navItem"><a href={`#${link.anchor}`} class="c-header__navLink">{link.txt}</a></li>
+            })
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style is:global lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .c-header {
+    padding-block: 1.0rem;
+    background-color: transparent;
+  }
+  .c-header__inner {
+    display: flex;
+    align-items: center;
+    padding-inline: 2.0rem;
+  }
+  // .c-header__title {
+  //   margin-right: auto;
+
+  //   ._txt {
+  //     font-family: monospace;
+  //     font-weight: 900;
+  //     font-size: 2.4rem;
+  //     line-height: 1;
+  //     transform: scaleX(.5);
+  //     transform-origin: left center;
+  //     @include sp {
+  //       font-size: 1.6rem;
+  //     }
+  //   }
+  // }
+  .c-header__anchors {
+    margin-left: auto;
+  } 
+  .c-header__nav {
+    
+  }
+  .c-header__navList {
+    display: flex;
+    gap: 1.0rem;
+  }
+  .c-header__navItem {
+    
+  }
+  .c-header__navLink {
+    
+    @include sp {
+      font-size: .8rem
+    }
+  }
+
+</style>

@@ -1,0 +1,29 @@
+// layout
+$base-pc-width: 1280px;
+$base-sp-width: 375px;
+$max-content-width: 1680px;
+$min-pc-width: 768px;
+
+@mixin pc {
+  @media screen and (min-width: #{$min-pc-width}) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: #{$min-pc-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin max {
+  @media screen and (min-width: #{$max-content-width}) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}

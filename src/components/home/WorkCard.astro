@@ -1,0 +1,149 @@
+---
+import { type Link } from '../_data/works';
+import Mock from '../_parts/Mock.astro';
+
+import Modal from "../common/Modal.astro";
+import modalContentsDtac from "../home/modalContentsDtac.astro"
+import modalContentsPist6 from "../home/modalContentsPist6.astro"
+import modalContentsSekaie from "../home/modalContentsSekaie.astro"
+
+const { id, name, desc, href, isReverse } = Astro.props;
+const links = typeof href == 'string'
+  ? [{url: href, txt: name }]
+  : href;
+
+const ModalContents = (() => {
+  if (id == 'dtac') {
+    return modalContentsDtac
+  } else if (id == 'pist6') {
+    return modalContentsPist6
+  } else if (id == 'sekaie') {
+    return modalContentsSekaie
+  }
+  return 'div'
+})();
+---
+
+<div class="hm-work-card">
+  <div class:list={[ 'hm-work-card__inner', isReverse && '_reverse' ]}>
+    <div class="hm-work-card__text">
+      <div class="hm-work-card__name">
+        <p class="_txt">{name}</p>
+      </div>
+      <div class="hm-work-card__desc">
+        <p class="_txt">{desc}</p>
+      </div>
+      <div class="hm-work-card__connect">
+        {
+          links.map((link: Link) => {
+            return <a href={link.url} class="hm-work-card__connectLink" target="_blank"><span class="_txt">{link.txt} のサイトへ</span></a>
+          })
+        }
+      </div>
+      <div class="hm-work-card__implementation">
+        <button class="hm-work-card__implementationBtn" id={`modal-${id}`}>このサイトの実装について</button>
+        <Modal id={`modal-${id}`}>
+          <ModalContents / ></ModalContents>
+        </Modal>
+      </div>
+    </div>
+    <div class="hm-work-card__visual">
+      <Mock src={links[0].url}, id={id}/ ></Mock>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modalTargetBtns = Array.from(document.getElementsByClassName('hm-work-card__implementationBtn'));
+  modalTargetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = document.getElementById(`target-${btn.id}`);
+      modal?.classList.add('_visible')
+    })
+  })
+</script>
+
+<style lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .hm-work-card {
+    overflow: hidden;
+    width: 100%;
+    padding-block: 2.0rem;
+    @include pc {
+      padding-block: 6.0rem;
+    }
+  }
+  .hm-work-card__inner {
+    @include pc {
+      display: flex;
+    }
+
+    &._reverse {
+
+      @include pc {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+  .hm-work-card__text {
+    margin-bottom: 2.5rem;
+    @include pc {
+      width: 45%;
+      margin-bottom: 0;
+    }
+  }
+  .hm-work-card__name {
+    font-size: 2.0rem;
+    @include sp {
+      font-size: 1.6rem;
+    }
+  }
+  .hm-work-card__desc {
+    margin-top: .5rem;
+    font-size: 1.2rem;
+    @include sp {
+      font-size: 1.0rem;
+    }
+  }
+  .hm-work-card__connect {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2.0rem;
+  }
+  .hm-work-card__connectLink {
+    padding: .8rem 1.6rem;
+    border: .1rem solid currentColor;
+
+    @include sp {
+      padding: .6rem .8rem;
+      font-size: .8rem;
+    }
+
+    &:nth-child(n+2) {
+      margin-top: .5rem;
+    }
+  }
+  .hm-work-card__implementation {
+    margin-top: 2.0rem;
+  }
+  .hm-work-card__implementationBtn {
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '';
+      display: block;
+      width: .4rem;
+      height: .6rem;
+      margin-right: .5rem;
+      background-color: currentColor;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+  }
+  .hm-work-card__visual {
+    
+    @include pc {
+      width: 65%;
+    }
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+---
+
+<section id="profile" class="hm-profile">
+  <div class="hm-profile__inner">
+    <header class="hm-profile__header">
+      <h2 class="hm-profile__title">profile</h2>
+    </header>
+    <div class="hm-profile__body">
+      <div class="hm-profile__text">
+        <div class="hm-profile__desc">
+          <p class="_txt">
+          30歳を機に飲食業界からジョブチェンジをするため、<br>
+          大久保にある東京マルチメディア専門学校に入学し、<br>
+          2年間でプログラミングの基礎を学びました。<br>
+          学科はモバイルアプリケーション学科でしたが、<br>
+          Webの自由な表現に轢かれ、Web制作の会社でサイトの制作をしてきました。
+        </p>
+        <p class="_txt">
+          直近では、WebGL Schoolの10期の講座を受講し、<br>
+          WebGLの実装ができるようにと試行錯誤しています。<br>
+          本ページの背景は、WebGLで実装されており、Three.jsは使用していません。
+        </p>
+        <p class="_txt">
+          APIからデータを取得し表示する形の実装を得意としていて、<br>
+          Worksにも掲載されている「Pist6」のレースページは、<br>
+          APIからのデータ取得によって構成されています。
+        </p>
+      </div>
+      </div>
+      <div class="hm-profile__thumb">
+        <figure>
+          <img src="/assets/images/img_profile_thumb.jpg" alt="" class="_img">
+          <figcaption>※ 長男の写真です</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .hm-profile {
+    padding-block: 4.0rem;
+    @include pc {
+      padding-block: 8.0rem;
+    }
+  }
+  .hm-profile__inner {
+    padding-inline: 2.0rem;
+    @include pc {
+      padding-inline: 4.0rem;
+    }
+  }
+  .hm-profile__header {
+    font-weight: 700;
+    font-size: 2.0rem;
+    @include pc {
+      font-size: 3.0rem;
+    }
+  }
+  .hm-profile__title {
+    text-transform: capitalize;
+    @include pc {
+
+    }
+  }
+  .hm-profile__body {
+    margin-top: 2.0rem;
+    @include pc {
+      display: flex;
+      margin-top: 4.0rem;
+    }
+  }
+  .hm-profile__text {
+    @include pc {
+      width: 65%;
+    }
+  }
+  .hm-profile__desc {
+    @include pc {
+
+    }
+
+    ._txt {
+      font-size: 1.0rem;
+      line-height: 1.8;
+      @include pc {
+        font-size: 1.2rem;
+      }
+
+      & + ._txt {
+        margin-top: 1.5em;
+      }
+    }
+    ._note {
+      margin-top: .8em;
+      font-size: .6rem;
+      @include pc {
+        font-size: .8rem;
+      }
+    }
+  }
+  .hm-profile__thumb  {
+    text-align: center;
+    @include pc {
+      width: 30%;
+      margin-left: auto;
+    }
+
+    ._img {
+      clip-path: inset(0 round 50%);
+      width: 100%;
+      margin-bottom: .5rem;
+    }
+  }
+</style>

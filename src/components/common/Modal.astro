@@ -1,0 +1,133 @@
+---
+
+const { id } = Astro.props
+---
+
+<div class="c-modal" id={`target-${id}`}>
+  <div class="c-modal__inner">
+    <div class="c-modal__overlay" aria-hidden="true"></div>
+    <div class="c-modal__contents">
+      <div class="c-modal__close"><button class="c-modal__closeBtn"><span class="_icon" aria-hidden="true"></span><span class="_txt">閉じる</span></button></div>
+      <div class="c-modal__contentsInner">
+        <div class="c-modal__contentsFrame">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modals = Array.from(document.getElementsByClassName('c-modal'));
+  const fragment = document.createDocumentFragment();
+  modals.forEach(modal => {
+    fragment.appendChild(modal)
+    const closeBtn = modal.getElementsByClassName('c-modal__closeBtn')[0];
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('_visible');
+    });
+
+    const overflow = modal.getElementsByClassName('c-modal__overlay')[0];
+    overflow.addEventListener('click', () => {
+      modal.classList.remove('_visible');
+    });
+  })
+  document.body.appendChild(fragment);
+</script>
+
+<style is:global lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .c-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+    &._visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .c-modal__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+  }
+  .c-modal__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, .5);
+  }
+  .c-modal__contents {
+    position: relative;
+    z-index: 2;
+    margin-inline: auto;
+    background-color: #fff;
+    @include pc {
+      width: 80%;
+      max-width: 100rem;
+      height: 80%;
+    }
+  }
+  .c-modal__contentsInner {
+    overflow: auto;
+    height: 100%;
+  }
+  .c-modal__contentsFrame {
+    padding: 2rem;
+  }
+  .c-modal__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .c-modal__closeBtn {
+    overflow: hidden;
+    padding: 1rem;
+    vertical-align: top;
+    ._icon {
+      position: relative;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      rotate: 45deg;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: currentColor;
+      }
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: currentColor;
+        rotate: 90deg;
+      }
+    }
+    ._txt {
+      position: absolute;
+      display: block;
+      width: 1px;
+      height: 1px;
+      clip-path: inset(0);
+    }
+  }
+</style>

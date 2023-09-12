@@ -1,0 +1,94 @@
+---
+---
+
+<section id="about" class="hm-about">
+  <div class="hm-about__inner">
+    <header class="hm-about__header">
+      <h2 class="hm-about__title">about</h2>
+    </header>
+    <div class="hm-about__body">
+      <div class="hm-about__desc">
+        <p class="_txt">
+          当ページは、これまで業務委託先、個人で請け負った案件の紹介ページになります。<br>
+          どのサイトも構築は一人で完結したサイトになっており、<br>
+          各サイトの実装についてモーダル内に大まかな内容を記しています。<br>
+          どの案件もそのサイトに必要な機能があり、それぞれ学びがあった実装になっています。<br>
+          このほかにも携わった案件がありますが、<br>
+          業務委託先での案件に関しては、自身の得意とする実装があった物を掲載しています。
+        </p>
+        <p class="_note">
+          ※ デザインに関しては一切行っていません。
+        </p>
+      </div>
+      <div class="hm-about__connect">
+        <div class="hm-about__connectTxt">
+          <p class="_txt">本ページのリポジトリは<a href="https://github.com/shinyam61/portfolio" class="_link" target="_blank">こちら</a>です</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../../assets/styles/media-query.scss' as *;
+  .hm-about {
+    padding-block: 4.0rem;
+    @include pc {
+      padding-block: 8.0rem;
+    }
+  }
+  .hm-about__inner {
+    padding-inline: 2.0rem;
+    @include pc {
+      padding-inline: 4.0rem;
+    }
+  }
+  .hm-about__header {
+    font-weight: 700;
+    font-size: 2.0rem;
+    @include pc {
+      font-size: 3.0rem;
+    }
+  }
+  .hm-about__title {
+    text-transform: capitalize;
+    @include pc {
+
+    }
+  }
+  .hm-about__body {
+    margin-top: 2.0rem;
+    @include pc {
+      margin-top: 4.0rem;
+    }
+  }
+  .hm-about__desc {
+    @include pc {
+
+    }
+
+    ._txt {
+      font-size: 1.0rem;
+      line-height: 1.8;
+      @include pc {
+        font-size: 1.2rem;
+      }
+    }
+    ._note {
+      margin-top: .8em;
+      font-size: .6rem;
+      @include pc {
+        font-size: .8rem;
+      }
+    }
+  }
+  .hm-about__connect {
+    margin-top: 2.0rem;
+
+    ._link {
+      margin-inline: .25em;
+      text-decoration: underline;
+      color: yellow;
+    }
+  }
+</style>
