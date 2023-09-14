@@ -22,12 +22,6 @@ export default () => {
     resize();
     window.addEventListener('resize', resize, false);
 
-    const img = new Image();
-    img.addEventListener('load', () => {
-      r.texture = webglFunc.create_texture(gl, img)
-    });
-    img.src = '/assets/images/chihiro01.jpg';
-
     canvas.width = r.w;
     canvas.height = r.h;
 
