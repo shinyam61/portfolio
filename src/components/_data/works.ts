@@ -63,7 +63,7 @@ export const works: Work[] = [
     anchors: [],
   },
   {
-    id: 'mitsubishi_intern',
+    id: 'meltopia',
     name: 'Meltopia カスタマーレポート',
     desc: '三菱電機のIT製品・サービス情報などの導入事例を検索するページです。',
     note: '',

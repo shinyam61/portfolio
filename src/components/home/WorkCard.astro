@@ -6,6 +6,11 @@ import Modal from "../common/Modal.astro";
 import modalContentsDtac from "../home/modalContentsDtac.astro"
 import modalContentsPist6 from "../home/modalContentsPist6.astro"
 import modalContentsSekaie from "../home/modalContentsSekaie.astro"
+import modalContentsNintei from "../home/modalContentsNintei.astro"
+import modalContentsMitsubishiIntern from "../home/modalContentsMitsubishiIntern.astro"
+import modalContentsMeltopia from "../home/modalContentsMeltopia.astro"
+import modalContentsTatibana from "../home/modalContentsTatibana.astro"
+import modalContentsAthmen from "../home/modalContentsAthmen.astro"
 
 const { id, name, desc, href, isReverse } = Astro.props;
 const links = typeof href == 'string'
@@ -19,6 +24,16 @@ const ModalContents = (() => {
     return modalContentsPist6
   } else if (id == 'sekaie') {
     return modalContentsSekaie
+  } else if (id == 'nintei') {
+    return modalContentsNintei
+  } else if (id == 'mitsubishi_intern') {
+    return modalContentsMitsubishiIntern
+  } else if (id == 'meltopia') {
+    return modalContentsMeltopia
+  } else if (id == 'tatibana') {
+    return modalContentsTatibana
+  } else if (id == 'athmen') {
+    return modalContentsAthmen
   }
   return 'div'
 })();

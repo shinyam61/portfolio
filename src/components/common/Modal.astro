@@ -58,6 +58,9 @@ const { id } = Astro.props
     width: 100%;
     height: 100%;
     padding: 2rem;
+    @include sp {
+      padding-inline: 0;
+    }
   }
   .c-modal__overlay {
     position: absolute;
@@ -75,6 +78,9 @@ const { id } = Astro.props
       width: 80%;
       max-width: 100rem;
       height: 80%;
+    }
+    @include sp {
+      height: 100%;
     }
   }
   .c-modal__contentsInner {
