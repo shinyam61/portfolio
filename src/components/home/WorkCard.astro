@@ -11,8 +11,10 @@ import modalContentsMitsubishiIntern from "../home/modalContentsMitsubishiIntern
 import modalContentsMeltopia from "../home/modalContentsMeltopia.astro"
 import modalContentsTatibana from "../home/modalContentsTatibana.astro"
 import modalContentsAthmen from "../home/modalContentsAthmen.astro"
+import modalContentsKsmedical from "../home/modalContentsKsmedical.astro"
 
-const { id, name, desc, href, isReverse } = Astro.props;
+
+const { id, name, desc, href, isReverse, thumb } = Astro.props;
 const links = typeof href == 'string'
   ? [{url: href, txt: name }]
   : href;
@@ -30,6 +32,8 @@ const ModalContents = (() => {
     return modalContentsMitsubishiIntern
   } else if (id == 'meltopia') {
     return modalContentsMeltopia
+  } else if (id == 'ksmedical') {
+    return modalContentsKsmedical
   } else if (id == 'tatibana') {
     return modalContentsTatibana
   } else if (id == 'athmen') {
@@ -63,7 +67,7 @@ const ModalContents = (() => {
       </div>
     </div>
     <div class="hm-work-card__visual">
-      <Mock src={links[0].url}, id={id}/ ></Mock>
+      <Mock src={links[0].url}, thumb={thumb} id={id}/ ></Mock>
     </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ type Work = {
   desc: string
   note: string
   href: string | Link[] 
+  thumb: string
   anchors: string[]
 }
 
@@ -19,6 +20,7 @@ export const works: Work[] = [
     desc: '沖縄で事業を展開しているdtac社のコーポレートサイトです。',
     note: '',
     href: 'https://www.dtac.tokyo/',
+    thumb: '',
     anchors: ['', 'top', 'who', 'what', 'company', 'ceo', 'where'],
   },
   {
@@ -36,6 +38,7 @@ export const works: Work[] = [
         txt: 'Pist6 コーポレート'
       }
     ],
+    thumb: '',
     anchors: ['', 'kv', 'news', 'information', 'content', 'access', 'sponsor'],
   },
   {
@@ -44,6 +47,7 @@ export const works: Work[] = [
     desc: '熱海に場所を構えるリゾートホテル「せかいえ」のウェブサイトです。',
     note: '',
     href: 'https://www.atamisekaie.jp/',
+    thumb: '',
     anchors: ['', 'top', 'about', 'suggest', 'plan', 'program', 'access', 'news', 'premium'],
   },
   {
@@ -52,6 +56,7 @@ export const works: Work[] = [
     desc: '家電関連の資格を取得する方に向けてのポータルサイトになります。',
     note: '',
     href: 'https://www.aeha.or.jp/nintei-center/',
+    thumb: '',
     anchors: ['', 'home', 'top-information-list'],
   },
   {
@@ -60,6 +65,7 @@ export const works: Work[] = [
     desc: '三菱電機のインターンシップに関する情報ページです。',
     note: '',
     href: 'https://www.mitsubishielectric.co.jp/saiyo/intern/index.html',
+    thumb: '',
     anchors: [],
   },
   {
@@ -67,7 +73,17 @@ export const works: Work[] = [
     name: 'Meltopia カスタマーレポート',
     desc: '三菱電機のIT製品・サービス情報などの導入事例を検索するページです。',
     note: '',
-    href: '/portfolio/assets/images/thumb_meltopia.png',
+    href: 'http://www.mitsubishielectric.co.jp/meltopia/customerreport/',
+    thumb: '/portfolio/assets/images/thumb_meltopia.png',
+    anchors: [],
+  },
+  {
+    id: 'ksmedical',
+    name: 'K’sMEDICALビル',
+    desc: '静岡県熱海市にある複合医療ビルであるK’sMEDICALビルの紹介サイトです。',
+    note: '',
+    href: 'https://ksmedical.jp/',
+    thumb: '/portfolio/assets/images/thumb_ksmedical.png',
     anchors: [],
   }
 ];
@@ -88,6 +104,7 @@ export const individual: Work[] = [
         txt: '旭たちばな保育園'
       }
     ],
+    thumb: '',
     anchors: ['', 'top', 'induction', 'news'],
   },
   {
@@ -96,6 +113,7 @@ export const individual: Work[] = [
     desc: 'アスリートをサポートする【アスリート･メンタルサポートプロジェクト】のウェブサイトです。',
     note: '',
     href: 'https://athmen.com/',
+    thumb: '',
     anchors: ['', 'top', 'concept', 'service', 'support'],
   }
 ]

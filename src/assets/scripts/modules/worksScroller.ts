@@ -82,6 +82,7 @@ export default () => {
 
     if (!w.iframes[rafIdPos].dataset.isReloaded && w.iframes[rafIdPos].dataset.isReloaded != 'true' && thirdActionRatio > .5) {
       const loadSrcPath = w.iframes[rafIdPos].dataset.src as string;
+      console.log(loadSrcPath, !/(png|jpg)$/.test(loadSrcPath));
       if (!/(png|jpg)$/.test(loadSrcPath)) {
         w.iframes[rafIdPos].src = loadSrcPath;
         w.iframes[rafIdPos].dataset.isReloaded = 'true';
