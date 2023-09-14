@@ -67,7 +67,7 @@ export const works: Work[] = [
     name: 'Meltopia カスタマーレポート',
     desc: '三菱電機のIT製品・サービス情報などの導入事例を検索するページです。',
     note: '',
-    href: 'https://www.mitsubishielectric.co.jp/meltopia/customerreport/',
+    href: '/portfolio/assets/images/thumb_meltopia.png',
     anchors: [],
   }
 ];

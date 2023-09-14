@@ -81,9 +81,12 @@ export default () => {
     target.setAttribute('style', `--mock-height:${height};--horizontal:${horizontal}deg;--open:${open}deg;`);
 
     if (!w.iframes[rafIdPos].dataset.isReloaded && w.iframes[rafIdPos].dataset.isReloaded != 'true' && thirdActionRatio > .5) {
-      w.iframes[rafIdPos].src = w.iframes[rafIdPos].dataset.src as string;
-      w.iframes[rafIdPos].dataset.isReloaded = 'true';
-      w.iframes[rafIdPos].classList.add('_visible');
+      const loadSrcPath = w.iframes[rafIdPos].dataset.src as string;
+      if (!/(png|jpg)$/.test(loadSrcPath)) {
+        w.iframes[rafIdPos].src = loadSrcPath;
+        w.iframes[rafIdPos].dataset.isReloaded = 'true';
+        w.iframes[rafIdPos].classList.add('_visible');
+      }
     }
 
     if (!!w.iframes[rafIdPos].dataset.isReloaded && w.iframes[rafIdPos].dataset.isReloaded == 'true' && thirdActionRatio > .5) {
